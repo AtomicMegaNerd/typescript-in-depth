@@ -1,5 +1,17 @@
 {
-  "dependencies": {
+  "scripts": {
+    "compile": "tsc",
+    "start": "node js/app.js"
+  },
+  "name": "typescript-in-depth",
+  "version": "1.0.0",
+  "description": "Learning Typescript",
+  "main": "js/app.js",
+  "repository": "git@github.com:AtomicMegaNerd/typescript-in-depth.git",
+  "author": "Chris Dunphy <chris@megaparsec.ca>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
     "typescript": "^4.9.3"
   }
 }
