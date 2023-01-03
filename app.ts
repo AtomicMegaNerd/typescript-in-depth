@@ -59,12 +59,14 @@ function BookToString(book: Book): string {
   );
 }
 
-function GetBookTitlesByCategory(categeryFilter: Category): Book[] {
+function GetBookTitlesByCategory(
+  categeryFilter: Category = Category.Fiction
+): Book[] {
   console.log(`Getting books in category ${Category[categeryFilter]}`);
   return GetAllBooks().filter((b) => b.category === categeryFilter);
 }
 
-function LogFirstAvailable(books: Book[]): Book {
+function LogFirstAvailable(books: Book[] = GetAllBooks()): Book {
   const numberOfBooks: number = books.length;
   const firstAvailable: Book = books.filter((b) => b.available)[0];
   console.log(`Total Books: ${numberOfBooks}`);
@@ -100,3 +102,42 @@ const productivityBooks: Book[] = GetBookTitlesByCategory(
 productivityBooks.map((val) => console.log(val.id + " = " + val.title));
 
 console.log(GetAllBookByID(1).title);
+
+function GetBooksReadForCust(name: string, ...bookIDs: number[]) {
+  bookIDs.forEach((id) => {
+    console.log(`Customer ${name} read book ${id}`);
+  });
+}
+
+function CheckOutBooks(customer: string, ...bookIDs: number[]): Book[] {
+  console.log(`Checking out books for ${customer}`);
+  return GetAllBooks().filter(
+    (book) => bookIDs.includes(book.id) && book.available
+  );
+}
+
+function CreateCustomer(name: string, age?: number, city?: string) {
+  console.log("Creating customer " + name);
+  if (age) {
+    console.log(`Age: ${age}`);
+  }
+
+  if (city) {
+    console.log(`City: ${city}`);
+  }
+}
+
+// *************************************************************************
+
+GetBooksReadForCust("Chris", 3, 4, 5, 6, 7);
+CreateCustomer("Bill");
+CreateCustomer("Fred", 36);
+CreateCustomer("Tina", 46, "Vancouver");
+
+let fictionBooks = GetBookTitlesByCategory();
+let poetryBooks = GetBookTitlesByCategory(Category.Poetry);
+
+LogFirstAvailable();
+
+const checkedOut: Book[] = CheckOutBooks("Chris", 1, 3);
+checkedOut.forEach((b) => console.log(BookToString(b)));
