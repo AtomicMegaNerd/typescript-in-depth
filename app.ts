@@ -47,6 +47,13 @@ function GetAllBooks(): Book[] {
       category: Category.Productivity,
       available: false,
     },
+    {
+      id: 4,
+      title: "Systems for Work",
+      author: "Chris Dunphy",
+      category: Category.Productivity,
+      available: true,
+    },
   ];
   return books;
 }
@@ -74,7 +81,7 @@ function LogFirstAvailable(books: Book[] = GetAllBooks()): Book {
   return firstAvailable;
 }
 
-function GetAllBookByID(id: number): Book {
+function GetBookByID(id: number): Book {
   return GetAllBooks().filter((b) => b.id === id)[0];
 }
 
@@ -101,7 +108,7 @@ const productivityBooks: Book[] = GetBookTitlesByCategory(
 );
 productivityBooks.map((val) => console.log(val.id + " = " + val.title));
 
-console.log(GetAllBookByID(1).title);
+console.log(GetBookByID(1).title);
 
 function GetBooksReadForCust(name: string, ...bookIDs: number[]) {
   bookIDs.forEach((id) => {
@@ -127,6 +134,20 @@ function CreateCustomer(name: string, age?: number, city?: string) {
   }
 }
 
+// Overloading works funny in TypeScript
+
+function GetTitles(author: string): Book[];
+function GetTitles(author: string, available: boolean): Book[];
+function GetTitles(author: string, available?: boolean): Book[] {
+  return GetAllBooks().filter((book) => {
+    if (available !== undefined) {
+      return book.author === author && book.available === available;
+    } else {
+      return book.author === author;
+    }
+  });
+}
+
 // *************************************************************************
 
 GetBooksReadForCust("Chris", 3, 4, 5, 6, 7);
@@ -141,3 +162,11 @@ LogFirstAvailable();
 
 const checkedOut: Book[] = CheckOutBooks("Chris", 1, 3);
 checkedOut.forEach((b) => console.log(BookToString(b)));
+
+console.log("\nGetting books...");
+const dunphyBooks: Book[] = GetTitles("Chris Dunphy");
+dunphyBooks.forEach((b) => console.log(BookToString(b)));
+
+console.log("\nGetting books...");
+const dunphyBooksAvail: Book[] = GetTitles("Chris Dunphy", true);
+dunphyBooksAvail.forEach((b) => console.log(BookToString(b)));
