@@ -134,7 +134,7 @@ function CreateCustomer(name: string, age?: number, city?: string) {
   }
 }
 
-// Overloading works funny in TypeScript
+// Overloading works funny in Typescript
 
 function GetTitles(author: string): Book[];
 function GetTitles(author: string, available: boolean): Book[];
@@ -170,3 +170,25 @@ dunphyBooks.forEach((b) => console.log(BookToString(b)));
 console.log("\nGetting books...");
 const dunphyBooksAvail: Book[] = GetTitles("Chris Dunphy", true);
 dunphyBooksAvail.forEach((b) => console.log(BookToString(b)));
+
+// Module 6: Interfaces
+// *************************************************************************
+
+interface Duck {
+  walk: () => void;
+  swim: () => void;
+  quack: () => void;
+}
+
+let probablyDuck = {
+  walk: () => console.log("Walking like a duck"),
+  swim: () => console.log("Swimming like a duck"),
+  quack: () => console.log("Quacking like a duck"),
+};
+
+function FlyOverWater(bird: Duck) {
+  bird.swim();
+}
+
+// Objects can implicitly implement an interface in Typescript
+FlyOverWater(probablyDuck);

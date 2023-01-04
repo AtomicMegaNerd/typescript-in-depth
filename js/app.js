@@ -127,3 +127,13 @@ dunphyBooks.forEach((b) => console.log(BookToString(b)));
 console.log("\nGetting books...");
 const dunphyBooksAvail = GetTitles("Chris Dunphy", true);
 dunphyBooksAvail.forEach((b) => console.log(BookToString(b)));
+let probablyDuck = {
+    walk: () => console.log("Walking like a duck"),
+    swim: () => console.log("Swimming like a duck"),
+    quack: () => console.log("Quacking like a duck"),
+};
+function FlyOverWater(bird) {
+    bird.swim();
+}
+// Objects can implicitly implement an interface in Typescript
+FlyOverWater(probablyDuck);
