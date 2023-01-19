@@ -17,8 +17,8 @@ import {
 
 // *************************************************************************
 
-let x: number;
-x = 5;
+let _x: number;
+_x = 5;
 
 let IdGenerator: (chars: string, nums: number) => string;
 IdGenerator = CreateCustomerID;
