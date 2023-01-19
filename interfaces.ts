@@ -9,13 +9,30 @@ interface Book {
   pages?: number;
   copies?: number;
   year?: number;
-  markDamaged?: (reason: string) => void;
+  markDamaged?: DamageLogger;
 }
 
+interface DamageLogger {
+  (reason: string): void;
+}
 interface Duck {
   walk: () => void;
   swim: () => void;
   quack: () => void;
 }
 
-export { Book, Duck };
+interface Person {
+  name: string;
+  email: string;
+}
+
+interface Author extends Person {
+  numBooksPublished: number;
+}
+
+interface Librarian extends Person {
+  department: string;
+  assistCustomer: (custName: string) => void;
+}
+
+export { Book, Duck, DamageLogger, Author, Librarian };

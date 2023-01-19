@@ -1,5 +1,6 @@
 import { Category } from "./enums";
-import { Book } from "./interfaces";
+import { UniversityLibrarian } from "./classes";
+import { Book, DamageLogger, Author, Librarian } from "./interfaces";
 
 import {
   GetBooksReadForCust,
@@ -94,3 +95,18 @@ function FlyOverWater(bird: Duck) {
 
 // Objects can implicitly implement an interface in Typescript
 FlyOverWater(probablyDuck);
+
+let logDamage: DamageLogger;
+logDamage = (damage: string) => console.log("Damage reported" + damage);
+
+logDamage("page torn");
+
+let favouriteAuthor: Author = {
+  name: "Fred Smith",
+  numBooksPublished: 6,
+  email: "fred.smith4000@notreal.lol",
+};
+
+let favouriteLibrarian: Librarian = new UniversityLibrarian();
+favouriteLibrarian.name = "Tina";
+favouriteLibrarian.assistCustomer("Wilma");

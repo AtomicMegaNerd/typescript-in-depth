@@ -1,5 +1,5 @@
 import { Category } from "./enums";
-import { Book, Duck } from "./interfaces";
+import { Book, DamageLogger, Author, Librarian } from "./interfaces";
 
 function GetAllBooks(): Book[] {
   const books: Book[] = [
