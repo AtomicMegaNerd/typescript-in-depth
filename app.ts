@@ -107,6 +107,9 @@ let favouriteAuthor: Author = {
   email: "fred.smith4000@notreal.lol",
 };
 
-let favouriteLibrarian: Librarian = new UniversityLibrarian();
-favouriteLibrarian.name = "Tina";
+let favouriteLibrarian: Librarian = new UniversityLibrarian(
+  "Tina",
+  "tina@fakelibrary.org",
+  "Administration"
+);
 favouriteLibrarian.assistCustomer("Wilma");
