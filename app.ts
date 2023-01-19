@@ -80,7 +80,6 @@ mybook.markDamaged("Bent back cover");
 
 import { Duck } from "./interfaces";
 
-// Module 6: Interfaces
 // *************************************************************************
 
 let probablyDuck = {
