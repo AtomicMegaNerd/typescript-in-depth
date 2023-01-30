@@ -113,3 +113,6 @@ let favouriteLibrarian: Librarian = new UniversityLibrarian(
   "Administration"
 );
 favouriteLibrarian.assistCustomer("Wilma");
+
+// static property
+console.log(UniversityLibrarian.description);
