@@ -119,8 +119,16 @@ console.log(UniversityLibrarian.description);
 
 // *************************************************************************
 
-// *************************************************************************
-
 let refBook = new Encyclopedia("WorldPedia", 1900, 3);
 refBook.printItem();
 refBook.printCitation();
+
+// *************************************************************************
+let NewsPaper = class extends ReferenceItem {
+  printCitation(): void {
+    console.log(`Newspaper: ${this.title}`);
+  }
+};
+
+let myPaper = new NewsPaper("The Gazette", 2022);
+myPaper.printCitation();
