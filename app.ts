@@ -1,5 +1,5 @@
 import { Category } from "./enums";
-import { UniversityLibrarian, ReferenceItem } from "./classes";
+import { UniversityLibrarian, ReferenceItem, Encyclopedia } from "./classes";
 import { Book, DamageLogger, Author, Librarian } from "./interfaces";
 
 import {
@@ -123,3 +123,8 @@ const ref = new ReferenceItem("New Facts and Figures", 2023);
 ref.printItem();
 ref.publisher = "Roflstar Books Inc";
 console.log(ref.publisher);
+
+// *************************************************************************
+
+let refBook = new Encyclopedia("WorldPedia", 1900, 3);
+refBook.printItem();

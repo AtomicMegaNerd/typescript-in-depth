@@ -19,7 +19,7 @@ class ReferenceItem {
   private _publisher: string;
   static department: string = "Research";
 
-  constructor(public title: string, private year: number) {}
+  constructor(public title: string, protected year: number) {}
 
   get publisher(): string {
     return this._publisher.toUpperCase();
@@ -34,4 +34,15 @@ class ReferenceItem {
     console.log(`Department: ${ReferenceItem.department}.`);
   }
 }
-export { UniversityLibrarian, ReferenceItem };
+
+class Encyclopedia extends ReferenceItem {
+  constructor(t: string, y: number, public edition: number) {
+    super(t, y);
+  }
+  printItem(): void {
+    super.printItem();
+    console.log(`Edition: ${this.edition} - ${this.year}`);
+  }
+}
+
+export { UniversityLibrarian, ReferenceItem, Encyclopedia };
