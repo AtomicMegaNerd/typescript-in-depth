@@ -1,5 +1,5 @@
 import { Category } from "./enums";
-import { UniversityLibrarian } from "./classes";
+import { UniversityLibrarian, ReferenceItem } from "./classes";
 import { Book, DamageLogger, Author, Librarian } from "./interfaces";
 
 import {
@@ -116,3 +116,10 @@ favouriteLibrarian.assistCustomer("Wilma");
 
 // static property
 console.log(UniversityLibrarian.description);
+
+// *************************************************************************
+
+const ref = new ReferenceItem("New Facts and Figures", 2023);
+ref.printItem();
+ref.publisher = "Roflstar Books Inc";
+console.log(ref.publisher);
