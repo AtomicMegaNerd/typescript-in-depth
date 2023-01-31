@@ -1,8 +1,9 @@
-import { Librarian } from "./interfaces";
+// Import the whole module as an interface
+import * as Interfaces from "./interfaces";
 export { UniversityLibrarian, ReferenceItem, Encyclopedia };
 
 // Public is the default :-)
-class UniversityLibrarian implements Librarian {
+class UniversityLibrarian implements Interfaces.Librarian {
   static description: string = "A source of knowledge";
 
   constructor(

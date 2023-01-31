@@ -1,6 +1,10 @@
 import { Category } from "./enums";
 import { UniversityLibrarian, ReferenceItem, Encyclopedia } from "./classes";
-import { Book, DamageLogger, Author, Librarian } from "./interfaces";
+import { Book, Logger, Author, Librarian } from "./interfaces";
+import {
+  CalculateLateFee as CalcFee,
+  MaxBooksAllowed,
+} from "./lib/utilityFunctions";
 
 import {
   GetBooksReadForCust,
@@ -90,7 +94,7 @@ function FlyOverWater(bird: Duck) {
 // Objects can implicitly implement an interface in Typescript
 FlyOverWater(probablyDuck);
 
-let logDamage: DamageLogger;
+let logDamage: Logger;
 logDamage = (damage: string) => console.log("Damage reported" + damage);
 
 logDamage("page torn");
@@ -127,3 +131,9 @@ let NewsPaper = class extends ReferenceItem {
 
 let myPaper = new NewsPaper("The Gazette", 2022);
 myPaper.printCitation();
+
+let fee = CalcFee(5);
+let maxBooks = MaxBooksAllowed(31);
+
+console.log(fee);
+console.log(maxBooks);
