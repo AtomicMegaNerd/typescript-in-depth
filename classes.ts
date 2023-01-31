@@ -15,7 +15,7 @@ class UniversityLibrarian implements Librarian {
   }
 }
 
-class ReferenceItem {
+abstract class ReferenceItem {
   private _publisher: string;
   static department: string = "Research";
 
@@ -33,15 +33,22 @@ class ReferenceItem {
     console.log(`${this.title} was published in ${this.year}.`);
     console.log(`Department: ${ReferenceItem.department}.`);
   }
+
+  abstract printCitation(): void;
 }
 
 class Encyclopedia extends ReferenceItem {
   constructor(t: string, y: number, public edition: number) {
     super(t, y);
   }
+
   printItem(): void {
     super.printItem();
     console.log(`Edition: ${this.edition} - ${this.year}`);
+  }
+
+  printCitation(): void {
+    console.log(`${this.title} - ${this.year}`);
   }
 }
 

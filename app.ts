@@ -119,12 +119,8 @@ console.log(UniversityLibrarian.description);
 
 // *************************************************************************
 
-const ref = new ReferenceItem("New Facts and Figures", 2023);
-ref.printItem();
-ref.publisher = "Roflstar Books Inc";
-console.log(ref.publisher);
-
 // *************************************************************************
 
 let refBook = new Encyclopedia("WorldPedia", 1900, 3);
 refBook.printItem();
+refBook.printCitation();
