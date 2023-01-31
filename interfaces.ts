@@ -1,4 +1,5 @@
 import { Category } from "./enums";
+export { Book, Duck, DamageLogger, Author, Librarian };
 
 interface Book {
   id: number;
@@ -34,5 +35,3 @@ interface Librarian extends Person {
   department: string;
   assistCustomer: (custName: string) => void;
 }
-
-export { Book, Duck, DamageLogger, Author, Librarian };

@@ -1,5 +1,19 @@
 import { Category } from "./enums";
-import { Book, DamageLogger, Author, Librarian } from "./interfaces";
+import { Book } from "./interfaces";
+
+export {
+  GetAllBooks,
+  GetTitles,
+  GetBookByID,
+  GetBooksReadForCust,
+  GetBookTitlesByCategory,
+  CheckOutBooks,
+  CreateCustomer,
+  CreateCustomerID,
+  LogFirstAvailable,
+  BookToString,
+  PrintBook,
+};
 
 function GetAllBooks(): Book[] {
   const books: Book[] = [
@@ -114,17 +128,3 @@ function GetTitles(author: string, available?: boolean): Book[] {
     }
   });
 }
-
-export {
-  GetAllBooks,
-  GetTitles,
-  GetBookByID,
-  GetBooksReadForCust,
-  GetBookTitlesByCategory,
-  CheckOutBooks,
-  CreateCustomer,
-  CreateCustomerID,
-  LogFirstAvailable,
-  BookToString,
-  PrintBook,
-};

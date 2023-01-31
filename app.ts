@@ -18,9 +18,6 @@ import {
 
 // *************************************************************************
 
-let _x: number;
-_x = 5;
-
 let IdGenerator: (chars: string, nums: number) => string;
 IdGenerator = CreateCustomerID;
 
@@ -43,9 +40,6 @@ GetBooksReadForCust("Chris", 3, 4, 5, 6, 7);
 CreateCustomer("Bill");
 CreateCustomer("Fred", 36);
 CreateCustomer("Tina", 46, "Vancouver");
-
-let fictionBooks = GetBookTitlesByCategory();
-let poetryBooks = GetBookTitlesByCategory(Category.Poetry);
 
 LogFirstAvailable();
 
@@ -106,6 +100,7 @@ let favouriteAuthor: Author = {
   numBooksPublished: 6,
   email: "fred.smith4000@notreal.lol",
 };
+console.log(favouriteAuthor);
 
 let favouriteLibrarian: Librarian = new UniversityLibrarian(
   "Tina",

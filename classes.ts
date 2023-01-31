@@ -1,4 +1,5 @@
-import { Book, DamageLogger, Author, Librarian } from "./interfaces";
+import { Librarian } from "./interfaces";
+export { UniversityLibrarian, ReferenceItem, Encyclopedia };
 
 // Public is the default :-)
 class UniversityLibrarian implements Librarian {
@@ -51,5 +52,3 @@ class Encyclopedia extends ReferenceItem {
     console.log(`${this.title} - ${this.year}`);
   }
 }
-
-export { UniversityLibrarian, ReferenceItem, Encyclopedia };
