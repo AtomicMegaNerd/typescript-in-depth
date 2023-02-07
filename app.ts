@@ -4,6 +4,7 @@ import { Book, Logger, Author, Librarian } from "./interfaces";
 import {
   CalculateLateFee as CalcFee,
   MaxBooksAllowed,
+  Purge,
 } from "./lib/utilityFunctions";
 
 // This is using a default import
@@ -140,3 +141,10 @@ let maxBooks = MaxBooksAllowed(31);
 
 console.log(fee);
 console.log(maxBooks);
+
+// *************************************************************************
+const purged: Book[] = Purge<Book>(GetAllBooks());
+purged.forEach((book) => console.log(book.title));
+
+const purgedNums: Number[] = Purge([1, 2, 3, 4, 5]);
+console.log(purgedNums);
