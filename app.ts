@@ -1,6 +1,6 @@
 import { Category } from "./enums";
 import { UniversityLibrarian, ReferenceItem } from "./classes";
-import { Book, Logger, Author, Librarian } from "./interfaces";
+import { Book, Logger, Author, Librarian, Magazine } from "./interfaces";
 import {
   CalculateLateFee as CalcFee,
   MaxBooksAllowed,
@@ -9,6 +9,7 @@ import {
 
 // This is using a default import
 import RefBook from "./encyclopedia";
+import Shelf from "./shelf";
 
 import {
   GetBooksReadForCust,
@@ -148,3 +149,27 @@ purged.forEach((book) => console.log(book.title));
 
 const purgedNums: Number[] = Purge([1, 2, 3, 4, 5]);
 console.log(purgedNums);
+
+// *************************************************************************
+//
+
+let bookShelf: Shelf<Book> = new Shelf<Book>();
+GetAllBooks().forEach((book) => bookShelf.add(book));
+
+const firstBook: Book = bookShelf.getFirst();
+console.log(firstBook);
+
+let magazines: Magazine[] = [
+  { title: "RC Car Action", publisher: "Nerd Pubs" },
+  { title: "Haskell Weekly", publisher: "Rofl Magazines Inc." },
+  { title: "Digital Nomad Monthly", publisher: "Ziff Davis" },
+];
+
+let magsShelf = new Shelf<Magazine>();
+magazines.forEach((mag) => magsShelf.add(mag));
+
+magsShelf.printTitles();
+let found = magsShelf.find("Haskell Weekly");
+console.log(found);
+const firstMagazine: Magazine = magsShelf.getFirst();
+console.log(firstMagazine);
