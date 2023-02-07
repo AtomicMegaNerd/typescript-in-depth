@@ -1,10 +1,13 @@
 import { Category } from "./enums";
-import { UniversityLibrarian, ReferenceItem, Encyclopedia } from "./classes";
+import { UniversityLibrarian, ReferenceItem } from "./classes";
 import { Book, Logger, Author, Librarian } from "./interfaces";
 import {
   CalculateLateFee as CalcFee,
   MaxBooksAllowed,
 } from "./lib/utilityFunctions";
+
+// This is using a default import
+import RefBook from "./encyclopedia";
 
 import {
   GetBooksReadForCust,
@@ -118,7 +121,7 @@ console.log(UniversityLibrarian.description);
 
 // *************************************************************************
 
-let refBook = new Encyclopedia("WorldPedia", 1900, 3);
+let refBook = new RefBook("WorldPedia", 1900, 3);
 refBook.printItem();
 refBook.printCitation();
 

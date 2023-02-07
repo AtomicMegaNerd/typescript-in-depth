@@ -1,6 +1,6 @@
 // Import the whole module as an interface
 import * as Interfaces from "./interfaces";
-export { UniversityLibrarian, ReferenceItem, Encyclopedia };
+export { UniversityLibrarian, ReferenceItem };
 
 // Public is the default :-)
 class UniversityLibrarian implements Interfaces.Librarian {
@@ -37,19 +37,4 @@ abstract class ReferenceItem {
   }
 
   abstract printCitation(): void;
-}
-
-class Encyclopedia extends ReferenceItem {
-  constructor(t: string, y: number, public edition: number) {
-    super(t, y);
-  }
-
-  printItem(): void {
-    super.printItem();
-    console.log(`Edition: ${this.edition} - ${this.year}`);
-  }
-
-  printCitation(): void {
-    console.log(`${this.title} - ${this.year}`);
-  }
 }
