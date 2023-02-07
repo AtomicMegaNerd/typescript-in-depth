@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es2016",
+    "target": "es2017",
     "outDir": "js",
     "watch": true,
-    "module": "CommonJS"
-  }
+    "module": "CommonJS",
+    "strict": true
+  },
+  "files": ["app.ts"]
 }

@@ -25,6 +25,8 @@ import {
   LogFirstAvailable,
 } from "./functions";
 
+import { Duck } from "./interfaces";
+
 // *************************************************************************
 
 let IdGenerator: (chars: string, nums: number) => string;
@@ -78,11 +80,11 @@ let mybook: Book = {
 
 // This works even though the mybook object has extra fields.
 PrintBook(mybook);
-mybook.markDamaged("Bent back cover");
+if (mybook.markDamaged) {
+  mybook.markDamaged("Bent back cover");
+}
 
 // *************************************************************************
-
-import { Duck } from "./interfaces";
 
 // *************************************************************************
 
