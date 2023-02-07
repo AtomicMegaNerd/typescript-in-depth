@@ -80,9 +80,8 @@ let mybook: Book = {
 
 // This works even though the mybook object has extra fields.
 PrintBook(mybook);
-if (mybook.markDamaged) {
-  mybook.markDamaged("Bent back cover");
-}
+
+mybook.markDamaged?.("Bent back cover");
 
 // *************************************************************************
 
