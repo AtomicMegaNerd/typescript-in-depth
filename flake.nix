@@ -17,6 +17,7 @@
               [
                 nodejs
                 yarn
+                nodePackages.typescript-language-server
               ];
           };
     };
